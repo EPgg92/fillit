@@ -1,0 +1,42 @@
+NAME = fillit
+
+CFLAGS = -Wall -Wextra -Werror
+
+CC = gcc
+
+INCLUDES = includes/
+
+SOURCES = sources/ft_parser.c \
+	sources/ft_solver.c \
+	sources/ft_printer.c \
+	sources/ft_main.c \
+	sources/ft_debug.c \
+	sources/ft_error.c
+
+OBJECTS = $(SOURCES:.c=.o)
+
+LIBFT = libft/libft.a
+
+all: $(NAME)
+
+make_libft:
+	make -C libft/
+
+$(NAME): $(OBJECTS) $(INCLUDES) make_libft
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) $(LIBFT)
+	@  # echo "make done"
+
+clean:
+	rm -f $(OBJECTS)
+	make clean -C libft/
+	@ # echo "clean objects"
+
+fclean: clean
+	make fclean -C libft/
+	rm -f $(NAME) a.out
+	@ # echo "clean bin"
+
+re: fclean all
+
+.PHONY: all clean fclean re
+# .SILENT: $(OBJECTS)
