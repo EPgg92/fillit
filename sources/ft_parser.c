@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/16 23:01:57 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/17 11:21:52 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/19 18:37:16 by epoggio     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,6 +28,12 @@ static unsigned short	ft_placeupleft(unsigned short stb)
 		stb = tmp;
 		tmp = stb << 1;
 	}
+	if (!(stb == 52224 || stb ==  61440 || stb ==  34952 || stb ==  17600 ||
+		stb ==  36352 || stb ==  51328 || stb ==  57856 || stb ==  35008 ||
+		stb ==  59392 || stb ==  50240 || stb ==  11776 || stb ==  19968 ||
+		stb ==  19520 || stb ==  35968 || stb ==  58368 || stb ==  50688 ||
+		stb ==  19584 || stb ==  27648 || stb == 35904))
+		ft_error(6); // code error g
 	return (stb);
 }
 
@@ -49,7 +55,7 @@ static void 	ft_check(t_tetri tetri, int nb)
 				else
 					ft_error(4); // code error e
 		stb = ft_placeupleft(stb);
-		//printf("%c -> %d\n", 'A' + z, stb );
+		printf("%c -> %d\n", 'A' + z, stb );
 		while (--x > -1 && (y = NB_COLL - 1))
 			while (y > -1)
 			{
@@ -72,7 +78,7 @@ static int	ft_septetri(t_tetri tetri, char *str, int ret)
 	while (++z < nb_tetri && (x = -1) < 42)
 		while ((l = ft_strsep(&str, "\n")) && ++x < NB_LINE)
 			(ft_strlen(l) == NB_COLL) ? \
-					ft_strcpy(tetri[z][x], l) : ft_error(3); // code error d
+				ft_strcpy(tetri[z][x], l) : ft_error(3); // code error d
 	ft_check(tetri, nb_tetri);
 	return (nb_tetri);
 }
@@ -95,5 +101,5 @@ int			ft_parser(t_tetri tetri, char *filename)
 {
 	int		nb_tetri;
 	nb_tetri = ft_read(tetri, filename);
-	return (0);
+	return (nb_tetri);
 }

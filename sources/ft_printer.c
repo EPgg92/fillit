@@ -6,18 +6,12 @@ void ft_writechar(char c)
 	write(0, &c, 1);
 }
 
-/*
-** ^^' Yes this is totally a putchar !
-** This avoid buf from printf free allocation.
-** May use real putchar usefull but not my (to slow) ...
-*/
-
-void ft_printtetri(t_tetri tetri)
+void ft_printtetri(t_tetri tetri, int nb_tetri)
 {
 	int i = -1;
 	int j = -1;
 	int k = -1;
-	while (++i < NB_TETRI)
+	while (++i < nb_tetri)
 	{
 		while (++j < NB_LINE)
 		{

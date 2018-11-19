@@ -62,6 +62,16 @@ Salut je suis pas là car j'ai oublié d'aller dormir... donc j'ai fait le parsi
 -   [ ] checker et casser le parssing et le parsing d'error (le tester avec toutes les types de pieces places en bas à gauche ...)
 -   [ ] faire les checks de liens à l'intérieur des pieces (6 ou 8)
 -   [ ] commencer à réfléchir l'algo de bactracting ...
--        [ ] tout les autres trucs que j'ai oublié... comme dormir.
+-   [ ] tout les autres trucs que j'ai oublié... comme dormir.
 
 Bonne chance!
+
+# Code erreur :
+
+-   a : pas d'argument
+-   b : mauvais nombre de cara
+-   c : trop de cara
+-   d : pas un carre 4x4
+-   e : pas # ou .
+-   f : pas le bon nombre de #
+-   g : piece non valide

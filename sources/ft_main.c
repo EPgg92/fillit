@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/16 22:58:00 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/17 11:56:11 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/19 18:40:06 by epoggio     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,16 +34,17 @@ void ft_init_tetri(t_tetri tetri)
 int main(int argc, char **argv)
 {
 	t_tetri tetri;
+	int nb_tetri;
 
 	if (argc < 2)
 	 	ft_error(0); // code error: a
 	ft_init_tetri(tetri);
-	ft_parser(tetri, argv[1]);
-	ft_printtetri(tetri);
+	nb_tetri = ft_parser(tetri, argv[1]);
+	ft_printtetri(tetri, nb_tetri);
 
 	/*
 	** Lis le readme!!!!!
-	** C'est rigolo ! 
+	** C'est rigolo !
 	*/
 
 

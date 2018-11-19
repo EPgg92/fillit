@@ -20,7 +20,7 @@ typedef char	t_tetri[NB_TETRI][NB_LINE][NB_COLL + 1];
 void			ft_error();
 int				ft_parser(t_tetri tetri, char *filename);
 void			ft_init_tetri(t_tetri tetri);
-void			ft_printtetri(t_tetri tetri);
+void			ft_printtetri(t_tetri tetri, int nb_tetri);
 void 			ft_writechar(char c);
 
 #endif
