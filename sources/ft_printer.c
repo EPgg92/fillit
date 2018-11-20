@@ -1,16 +1,32 @@
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_printer.c                                     .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2018/11/20 14:28:30 by epoggio      #+#   ##    ##    #+#       */
+/*   Updated: 2018/11/20 14:29:36 by epoggio     ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
 #include "../includes/fillit.h"
 
-
-void ft_writechar(char c)
+void	ft_writechar(char c)
 {
 	write(0, &c, 1);
 }
 
-void ft_printtetri(t_tetri tetri, int nb_tetri)
+void	ft_printtetri(t_tetri tetri, int nb_tetri)
 {
-	int i = -1;
-	int j = -1;
-	int k = -1;
+	int i;
+	int j;
+	int k;
+
+	i = -1;
+	j = -1;
+	k = -1;
 	while (++i < nb_tetri)
 	{
 		while (++j < NB_LINE)
