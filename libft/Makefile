@@ -15,6 +15,7 @@ SOURCES = ft_bzero.c \
 	ft_strrchr.c \
 	ft_strreplace.c \
 	ft_strsep.c \
+	ft_sqrt.c \
 	ft_countsetbits.c \
 	ft_strspn.c
 

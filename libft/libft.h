@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/10/11 20:06:09 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/17 07:56:22 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/20 13:35:21 by epoggio     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,5 +30,6 @@ size_t				ft_strspn(const char *s, const char *charset);
 size_t				ft_strcspn(const char *s, const char *charset);
 char				*ft_strsep(char **stringp, const char *delim);
 int					ft_countsetbits(unsigned short n);
+int					ft_sqrt(int nb);
 
 #endif
