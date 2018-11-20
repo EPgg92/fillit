@@ -10,6 +10,7 @@ SOURCES = sources/ft_parser.c \
 	sources/ft_solver.c \
 	sources/ft_printer.c \
 	sources/ft_main.c \
+	sources/ft_init.c \
 	sources/ft_debug.c \
 	sources/ft_error.c
 
