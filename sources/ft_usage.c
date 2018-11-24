@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_main.c                                        .::    .:/ .      .::   */
+/*   ft_usage.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/11/16 22:58:00 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/24 12:02:24 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Created: 2018/11/24 11:42:08 by epoggio      #+#   ##    ##    #+#       */
+/*   Updated: 2018/11/24 12:06:10 by epoggio     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-int	main(int argc, char **argv)
+int ft_usage()
 {
-	t_tetri		tetri;
-	int			nb_tetri;
-	t_map		map;
-	t_output	output;
-
-	if (argc != 2)
-		return (ft_usage());
-	ft_init_tetri(tetri);
-	nb_tetri = ft_parser(tetri, map, argv[1]);
-	ft_printtetri(tetri, nb_tetri);
-	ft_solver(output, map, nb_tetri);
-	return (0);
+	write(0, "usage: ./fillit teriminos_file\n", 31);
+	return (1);
 }

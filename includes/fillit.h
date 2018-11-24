@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/20 14:17:57 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/20 14:18:38 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/24 12:02:56 by epoggio     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -31,14 +31,17 @@
 
 typedef char			t_tetri[NB_TETRI][NB_LINE][NB_COLL + 1];
 typedef unsigned short	t_map[16];
+typedef int				t_order[26];
 typedef char			t_output[LIMIT_SIDE][LIMIT_SIDE];
 
 void					ft_error();
+int						ft_usage();
 int						ft_parser(t_tetri tetri, t_map map, char *filename);
 void					ft_init_tetri(t_tetri tetri);
 void					ft_printtetri(t_tetri tetri, int nb_tetri);
 void					ft_writechar(char c);
 void					ft_init_output(t_output output);
 void					ft_solver(t_output output, t_map map, int nb_tetri);
+void					ft_init_order(t_order order, int nb_tetri);
 
 #endif
