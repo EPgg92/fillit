@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/20 14:17:57 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/24 19:10:59 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/25 17:36:49 by epoggio     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -45,6 +45,7 @@ void					ft_init_output(t_output output);
 void					ft_solver(t_output output, t_btetri bt, int nb_tetri);
 void					ft_init_order(t_order order, int nb_tetri);
 unsigned short			ft_get_4bits_first(unsigned short in);
-void 					lolilol(int nb_tetri, t_btetri bt);
+void					ft_init_map(t_map map);
+void 					manif_pour_tous(int nb_tetri, t_btetri bt); // to remove
 
 #endif
