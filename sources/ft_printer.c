@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/20 14:28:30 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/24 19:22:41 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/25 17:36:40 by epoggio     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -83,7 +83,7 @@ static void print_tab(unsigned short tab[4])
 }
 
 
-void lolilol(int nb_tetri, t_btetri bt)
+void manif_pour_tous(int nb_tetri, t_btetri bt)
 {
 	int i = 0;
 
