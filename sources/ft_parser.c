@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/16 23:01:57 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/20 14:27:55 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/24 18:56:42 by epoggio     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,16 +28,16 @@ static unsigned short	ft_placeupleft(unsigned short stb)
 		stb = tmp;
 		tmp = stb << 1;
 	}
-	if (!(stb == 52224 || stb == 61440 || stb == 34952 || stb == 17600 ||
-		stb == 36352 || stb == 51328 || stb == 57856 || stb == 35008 ||
-		stb == 59392 || stb == 50240 || stb == 11776 || stb == 19968 ||
-		stb == 19520 || stb == 35968 || stb == 58368 || stb == 50688 ||
+	if (!(stb == 52224 || stb == 61440 || stb == 34952 || stb == 17600 || \
+		stb == 36352 || stb == 51328 || stb == 57856 || stb == 35008 || \
+		stb == 59392 || stb == 50240 || stb == 11776 || stb == 19968 || \
+		stb == 19520 || stb == 35968 || stb == 58368 || stb == 50688 || \
 		stb == 19584 || stb == 27648 || stb == 35904))
 		ft_error(6); // code error g
 	return (stb);
 }
 
-static void				ft_check(t_tetri tetri, int nb, t_map map)
+static void				ft_check(t_tetri tetri, int nb, t_btetri bt)
 {
 	unsigned short	stb;
 	int				z;
@@ -55,18 +55,26 @@ static void				ft_check(t_tetri tetri, int nb, t_map map)
 				else
 					ft_error(4); // code error e
 		stb = ft_placeupleft(stb);
-		map[z] = stb;
-		//printf("%c -> %d\n", 'A' + z, stb );
+		unsigned short	stb_copy = stb ; // to remove
+		x = -1;
+		while (++x < NB_LINE)
+		{
+			bt[z][x] = ft_get_4bits_first(stb);
+			stb <<= 4;
+		}
+		//printf("%c -> %d\n", 'A' + z, stb ); // remove under
+		x = 4;
 		while (--x > -1 && (y = NB_COLL - 1))
 			while (y > -1)
 			{
-				tetri[z][x][y--] = (stb % 2 == 1) ? 'A' + z : '.';
-				stb >>= 1;
+				tetri[z][x][y--] = (stb_copy % 2 == 1) ? 'A' + z : '.';
+				stb_copy >>= 1;
 			}
 	}
 }
 
-static int				ft_septetri(t_tetri tetri, char *str, int ret, t_map m)
+static int				ft_septetri(t_tetri tetri, char *str, \
+										int ret, t_btetri bt)
 {
 	int		nb_tetri;
 	int		z;
@@ -79,11 +87,11 @@ static int				ft_septetri(t_tetri tetri, char *str, int ret, t_map m)
 		while ((l = ft_strsep(&str, "\n")) && ++x < NB_LINE)
 			(ft_strlen(l) == NB_COLL) ? \
 				ft_strcpy(tetri[z][x], l) : ft_error(3); // code error d
-	ft_check(tetri, nb_tetri, m);
+	ft_check(tetri, nb_tetri, bt);
 	return (nb_tetri);
 }
 
-static int				ft_read(t_tetri tetri, char *filename, t_map map)
+static int				ft_read(t_tetri tetri, char *filename, t_btetri bt)
 {
 	char	buff[BUFF_READ + 1];
 	int		ret;
@@ -93,15 +101,15 @@ static int				ft_read(t_tetri tetri, char *filename, t_map map)
 	ret = read(fd, buff, BUFF_READ);
 	ret % 21 == 20 ? buff[ret] = 0 : ft_error(1); // code error: b
 	(read(fd, NULL, 1)) ? \
-		ft_error(2) : (ret = ft_septetri(tetri, buff, ret, map));
+		ft_error(2) : (ret = ft_septetri(tetri, buff, ret, bt));
 	// code error: c
 	return (ret);
 }
 
-int						ft_parser(t_tetri tetri, t_map map, char *filename)
+int						ft_parser(t_tetri tetri, t_btetri bt, char *fn)
 {
 	int		nb_tetri;
 
-	nb_tetri = ft_read(tetri, filename, map);
+	nb_tetri = ft_read(tetri, fn, bt);
 	return (nb_tetri);
 }

@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_main.c                                        .::    .:/ .      .::   */
+/*   ft_bitoperation.c                                .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2018/11/16 22:58:00 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/24 19:11:35 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Created: 2018/11/24 17:21:02 by epoggio      #+#   ##    ##    #+#       */
+/*   Updated: 2018/11/24 18:42:24 by epoggio     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
 
-int	main(int argc, char **argv)
+unsigned short ft_get_4bits_first(unsigned short in)
 {
-	t_tetri		tetri;
-	int			nb_tetri;
-	t_btetri	bt;
-	t_output	output;
+	unsigned short out;
 
-	if (argc != 2)
-		return (ft_usage());
-	ft_init_tetri(tetri);
-	nb_tetri = ft_parser(tetri, bt, argv[1]);
-	//ft_printtetri(tetri, nb_tetri);
-	lolilol(nb_tetri, bt);
-	ft_solver(output, bt, nb_tetri);
-	return (0);
+	out = ((in >>= 12) % 2) ? 4096 : 0;
+	out += ((in >>= 1) % 2) ? 8192 : 0;
+	out += ((in >>= 1) % 2) ? 16384 : 0;
+	out += ((in >>= 1) % 2) ? 32768 : 0;
+	return (out);
 }
