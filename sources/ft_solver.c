@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/20 14:30:06 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/24 18:50:59 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/25 17:39:48 by epoggio     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,11 @@
 
 static int	ft_backtraking(int side, t_btetri bt, t_order order, t_output output)
 {
+	// nb of tetri find in order ...
 
+	t_map map;
+
+	ft_init_map(map);
 	//ft_backtraking(side + 1, map, order, output);
 	side++;
 	bt[0][0] = bt[0][0] ;
