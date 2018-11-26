@@ -1,45 +1,116 @@
-NAME = fillit
+# **************************************************************************** #
+#                                                           LE - /             #
+#                                                               /              #
+#    Makefile                                         .::    .:/ .      .::    #
+#                                                  +:+:+   +:    +:  +:+:+     #
+#    By: vasalome <marvin@le-101.fr>                +:+   +:    +:    +:+      #
+#                                                  #+#   #+    #+    #+#       #
+#    Created: 2018/11/26 17:27:09 by vasalome     #+#   ##    ##    #+#        #
+#    Updated: 2018/11/26 17:28:00 by vasalome    ###    #+. /#+    ###.fr      #
+#                                                          /                   #
+#                                                         /                    #
+# **************************************************************************** #
 
-CFLAGS = -Wall -Wextra -Werror
+##						##
+##	|	VARIABLES	|	##
+##						##
 
-CC = gcc
+#	Output:
+NAME		=	fillit
 
-INCLUDES = includes/
+#	Compiler:
+CC			=	gcc
+CFLAGS		=	-Wall -Wextra -Werror
 
-SOURCES = sources/ft_parser.c \
-	sources/ft_solver.c \
-	sources/ft_printer.c \
-	sources/ft_main.c \
-	sources/ft_init.c \
-	sources/ft_debug.c \
-	sources/ft_usage.c \
-	sources/ft_bitoperation.c \
-	sources/ft_error.c
+#	Directory:
+SRCS_DIR	=	./sources/
+OBJ_DIR		=	./objs_fillit/
+INC_DIR		=	./includes/
 
-OBJECTS = $(SOURCES:.c=.o)
+#	Sources:
+SRCS		=	ft_main.c
+SRCS		+=	ft_parser.c
+SRCS		+=	ft_solver.c
+SRCS		+=	ft_printer.c
+SRCS		+=	ft_init.c
+SRCS		+=	ft_debug.c
+SRCS		+=	ft_usage.c
+SRCS		+=	ft_bitoperation.c
+SRCS		+=	ft_error.c
 
-LIBFT = libft/libft.a
+#	Objects:
+OBJ			=	$(addprefix $(OBJ_DIR),$(SRCS:.c=.o))
 
-all: $(NAME)
+#	Includes:
+INC			=	$(addprefix -I,$(INC_DIR))
+
+#	Library:
+LIBFT		=	libft/libft.a
+
+#	Cleaning:
+RM			=	/bin/rm -f
+RM_DIR		=	/bin/rm -rf
+
+#	Colors:
+_GREEN		=	\033[38;5;46m
+_VIOLET		=	\033[38;5;141m
+_RED		=	\033[38;5;1m
+_CYAN		=	\033[38;5;45m
+_ORANGE		=	\033[38;5;214m
+_YELLOW		=	\033[38;5;220m
+_PINK		=	\033[38;5;197m
+_STOP		=	\033[0m
+
+#	Fonts:
+END			=	\033[0m
+BOLD		=	\033[1m
+R_BOLD		=	\033[21m
+BLINK		=	\033[5m
+R_BLINK		=	\033[25m
+UNDERLINE	=	\033[4m
+R_UNDERLINE	=	\033[24m
+
+
+##					##
+##	|	RULES	|	##
+##					##
+
+$(OBJ_DIR)%.o:$(SRCS_DIR)%.c $(INC_DIR)*.h
+	@printf "$(_PINK)[CC] $(<:.c=)...$(_STOP)"
+	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	@printf "\r                                             \r"
+
+all:
+	@echo "$(_PINK)$(UNDERLINE)FILLIT:$(R_UNDERLINE)$(_STOP)		COMPILATION OBJECTS: IN PROGRESS\n		OBJECTS DIRECTORY: CREATION || ->\n"
+	@mkdir -p $(OBJ_DIR)
+	@echo "$(_PINK)| ->		SUCCESS\n$(_STOP)"
+	@$(MAKE) $(NAME) --no-print-directory
 
 make_libft:
-	make -C libft/
+	@make -C libft/
 
-$(NAME): $(OBJECTS) $(INCLUDES) make_libft
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) $(LIBFT)
-	@  # echo "make done"
+$(NAME): $(OBJ) $(INC_DIR) make_libft
+	@echo "$(_PINK)$(UNDERLINE)FILLIT:$(R_UNDERLINE)$(_STOP)		COMPILATION $(NAME) || ->\n"
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT)
+	@echo "$(_PINK)| ->		$(NAME): OK\n$(_STOP)"
 
 clean:
-	rm -f $(OBJECTS)
-	make clean -C libft/
-	@ # echo "clean objects"
+	@echo "$(_PINK)$(UNDERLINE)FILLIT:$(R_UNDERLINE)$(_STOP)		CLEAN: IN PROGRESS\n		DELETING OBJECTS || ->\n"
+	@$(RM_DIR) $(OBJ_DIR)
+	@$(MAKE) clean -C libft/
+	@echo "$(_PINK)| ->		CLEAN: OK\n$(_STOP)"
 
 fclean: clean
-	make fclean -C libft/
-	rm -f $(NAME) a.out
-	@ # echo "clean bin"
+	@echo "$(_PINK)$(UNDERLINE)FILLIT:$(R_UNDERLINE)$(_STOP)		FCLEAN: IN PROGRESS\n		DELETING EXEC || ->\n"
+	@$(RM) $(NAME) a.out
+	@$(MAKE) fclean -C libft/
+	@echo "$(_PINK)| ->		FCLEAN: OK\n$(_STOP)"
 
-re: fclean all
+re:
+	@$(MAKE) fclean --no-print-directory
+	@$(MAKE) all --no-print-directory
 
-.PHONY: all clean fclean re
-# .SILENT: $(OBJECTS)
+
+#.SILENT: $(OBJ)
+#.PRECIOUS:
+.PHONY: all clean fclean re norm pause libclean
