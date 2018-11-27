@@ -6,7 +6,7 @@
 #    By: vasalome <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/11/26 17:27:09 by vasalome     #+#   ##    ##    #+#        #
-#    Updated: 2018/11/26 17:28:00 by vasalome    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/11/27 16:36:30 by vasalome    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -76,35 +76,46 @@ R_UNDERLINE	=	\033[24m
 ##					##
 
 $(OBJ_DIR)%.o:$(SRCS_DIR)%.c $(INC_DIR)*.h
-	@printf "$(_PINK)[CC] $(<:.c=)...$(_STOP)"
+	@printf "$(_CYAN)[CC] $(<:.c=)...$(_STOP)"
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 	@printf "\r                                             \r"
 
 all:
-	@echo "$(_PINK)$(UNDERLINE)FILLIT:$(R_UNDERLINE)$(_STOP)		COMPILATION OBJECTS: IN PROGRESS\n		OBJECTS DIRECTORY: CREATION || ->\n"
+	@echo "$(_CYAN)$(UNDERLINE)FILLIT:$(R_UNDERLINE)$(_STOP)		$(BOLD)COMPILATION OBJECTS: IN PROGRESS..$(_STOP)\n		OBJECTS DIRECTORY: CREATION || ->\n"
 	@mkdir -p $(OBJ_DIR)
-	@echo "$(_PINK)| ->		SUCCESS\n$(_STOP)"
 	@$(MAKE) $(NAME) --no-print-directory
 
 make_libft:
 	@make -C libft/
 
 $(NAME): $(OBJ) $(INC_DIR) make_libft
-	@echo "$(_PINK)$(UNDERLINE)FILLIT:$(R_UNDERLINE)$(_STOP)		COMPILATION $(NAME) || ->\n"
+	@echo "$(_CYAN)$(UNDERLINE)FILLIT:$(R_UNDERLINE)$(_STOP)		$(BOLD)COMPILATION $(NAME): IN PROGRESS..$(_STOP)\n"
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT)
-	@echo "$(_PINK)| ->		$(NAME): OK\n$(_STOP)"
+	@echo "$(_CYAN)| ->		$(NAME): $(BLINK)100%\n$(R_BLINK)$(_STOP)"
+#	@sleep 0.7
+	@clear
+	@echo "\n	$(_CYAN)----------------------------------------------------------"
+	@echo "	|>							<|"
+	@echo "	|>	███████╗██╗██╗     ██╗     ██╗████████╗		<|"
+	@echo "	|>	██╔════╝██║██║     ██║     ██║╚══██╔══╝		<|"
+	@echo "	|>	█████╗  ██║██║     ██║     ██║   ██║   		<|"
+	@echo "	|>	██╔══╝  ██║██║     ██║     ██║   ██║   		<|"
+	@echo "	|>	██║     ██║███████╗███████╗██║   ██║   		<|"
+	@echo "	|>	╚═╝     ╚═╝╚══════╝╚══════╝╚═╝   ╚═╝ $(_STOP)$(BLINK)is ready$(R_BLINK)	$(_CYAN)<|"
+	@echo "	|>							<|"
+	@echo "	----------------------------------------------------------$(_STOP)\n"
 
 clean:
-	@echo "$(_PINK)$(UNDERLINE)FILLIT:$(R_UNDERLINE)$(_STOP)		CLEAN: IN PROGRESS\n		DELETING OBJECTS || ->\n"
+	@echo "$(_CYAN)$(UNDERLINE)FILLIT:$(R_UNDERLINE)$(_STOP)		$(BOLD)CLEAN: IN PROGRESS..$(_STOP)\n		DELETING OBJECTS || ->\n"
 	@$(RM_DIR) $(OBJ_DIR)
 	@$(MAKE) clean -C libft/
-	@echo "$(_PINK)| ->		CLEAN: OK\n$(_STOP)"
+	@echo "$(_CYAN)| ->		CLEAN: OK\n$(_STOP)"
 
 fclean: clean
-	@echo "$(_PINK)$(UNDERLINE)FILLIT:$(R_UNDERLINE)$(_STOP)		FCLEAN: IN PROGRESS\n		DELETING EXEC || ->\n"
+	@echo "$(_CYAN)$(UNDERLINE)FILLIT:$(R_UNDERLINE)$(_STOP)		$(BOLD)FCLEAN: IN PROGRESS..$(_STOP)\n		DELETING EXEC || ->\n"
 	@$(RM) $(NAME) a.out
 	@$(MAKE) fclean -C libft/
-	@echo "$(_PINK)| ->		FCLEAN: OK\n$(_STOP)"
+	@echo "$(_CYAN)| ->		FCLEAN: OK\n$(_STOP)"
 
 re:
 	@$(MAKE) fclean --no-print-directory
