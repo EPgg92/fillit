@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/20 14:17:57 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/25 17:36:49 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/26 15:37:55 by vasalome    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,7 +19,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stdio.h> // to remove
-# include "../libft/libft.h"
+# include "../libft/includes/libft.h"
 
 # define NB_LINE 4
 # define NB_COLL 4
