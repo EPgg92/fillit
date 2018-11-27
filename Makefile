@@ -6,7 +6,7 @@
 #    By: vasalome <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/11/26 17:27:09 by vasalome     #+#   ##    ##    #+#        #
-#    Updated: 2018/11/27 16:36:30 by vasalome    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/11/27 17:01:07 by vasalome    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -109,13 +109,13 @@ clean:
 	@echo "$(_CYAN)$(UNDERLINE)FILLIT:$(R_UNDERLINE)$(_STOP)		$(BOLD)CLEAN: IN PROGRESS..$(_STOP)\n		DELETING OBJECTS || ->\n"
 	@$(RM_DIR) $(OBJ_DIR)
 	@$(MAKE) clean -C libft/
-	@echo "$(_CYAN)| ->		CLEAN: OK\n$(_STOP)"
+	@echo "$(_CYAN)| ->		CLEAN: DONE\n$(_STOP)"
 
 fclean: clean
 	@echo "$(_CYAN)$(UNDERLINE)FILLIT:$(R_UNDERLINE)$(_STOP)		$(BOLD)FCLEAN: IN PROGRESS..$(_STOP)\n		DELETING EXEC || ->\n"
 	@$(RM) $(NAME) a.out
 	@$(MAKE) fclean -C libft/
-	@echo "$(_CYAN)| ->		FCLEAN: OK\n$(_STOP)"
+	@echo "$(_CYAN)| ->		FCLEAN: DONE\n$(_STOP)"
 
 re:
 	@$(MAKE) fclean --no-print-directory
