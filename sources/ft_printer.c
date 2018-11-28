@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/20 14:28:30 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/25 17:36:40 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/28 18:03:40 by epoggio     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -48,48 +48,3 @@ void	ft_printtetri(t_tetri tetri, int nb_tetri)
 /*
 ** Just for debug...
 */
-
-
-
-
-static void print_lol(unsigned short lol, int i)
-{
-	unsigned short tmp;
-
-	if (lol == 0){
-		//printf("%d\n", i );
-		while (i++ < 16)
-			printf("0");
-		return ;
-	}
-	tmp = lol >> 1;
-	print_lol(tmp, ++i);
-	printf("%d", lol % 2);
-}
-
-static void print_lol_nl(unsigned short lol)
-{
-	print_lol(lol, 0);
-	printf("\n");
-}
-
-static void print_tab(unsigned short tab[4])
-{
-	int i;
-
-	i = 0;
-	while (i < 4)
-		print_lol_nl(tab[i++]);
-}
-
-
-void manif_pour_tous(int nb_tetri, t_btetri bt)
-{
-	int i = 0;
-
-	while (i < nb_tetri)
-	{
-		print_tab(bt[i++]);
-		printf("-~-~-~-~-~-~-~-~\n" );
-	}
-}
