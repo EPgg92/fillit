@@ -3,10 +3,10 @@
 #                                                               /              #
 #    Makefile                                         .::    .:/ .      .::    #
 #                                                  +:+:+   +:    +:  +:+:+     #
-#    By: vasalome <marvin@le-101.fr>                +:+   +:    +:    +:+      #
+#    By: vasalome <vasalome@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/11/26 17:27:09 by vasalome     #+#   ##    ##    #+#        #
-#    Updated: 2018/11/27 17:01:07 by vasalome    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/11/28 14:01:06 by epoggio     ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -93,7 +93,7 @@ $(NAME): $(OBJ) $(INC_DIR) make_libft
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT)
 	@echo "$(_CYAN)| ->		$(NAME): $(BLINK)100%\n$(R_BLINK)$(_STOP)"
 #	@sleep 0.7
-	@clear
+#	@clear
 	@echo "\n	$(_CYAN)----------------------------------------------------------"
 	@echo "	|>							<|"
 	@echo "	|>	███████╗██╗██╗     ██╗     ██╗████████╗		<|"
