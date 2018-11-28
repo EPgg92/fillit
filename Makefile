@@ -6,7 +6,7 @@
 #    By: vasalome <vasalome@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/11/26 17:27:09 by vasalome     #+#   ##    ##    #+#        #
-#    Updated: 2018/11/28 14:01:06 by epoggio     ###    #+. /#+    ###.fr      #
+#    Updated: 2018/11/28 17:53:51 by vasalome    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -124,4 +124,4 @@ re:
 
 #.SILENT: $(OBJ)
 #.PRECIOUS:
-.PHONY: all clean fclean re norm pause libclean
+.PHONY: all clean fclean re make_libft
