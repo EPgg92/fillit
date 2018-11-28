@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/20 14:17:57 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/26 15:37:55 by vasalome    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/28 16:27:15 by epoggio     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,9 +30,10 @@
 # define BUFF_READ (H_BLOCK + 1) * NB_TETRI - 1
 
 typedef char			t_tetri[NB_TETRI][NB_LINE][NB_COLL + 1];
-typedef unsigned short	t_map[16];
-typedef unsigned short	t_btetri[16][4];
-typedef int				t_order[26];
+typedef unsigned short	t_map[LIMIT_SIDE];
+typedef unsigned short	t_btetri[NB_TETRI][NB_LINE];
+typedef unsigned short	t_bpiece[NB_LINE];
+typedef int				t_order[NB_TETRI];
 typedef char			t_output[LIMIT_SIDE][LIMIT_SIDE];
 
 void					ft_error();
@@ -46,6 +47,7 @@ void					ft_solver(t_output output, t_btetri bt, int nb_tetri);
 void					ft_init_order(t_order order, int nb_tetri);
 unsigned short			ft_get_4bits_first(unsigned short in);
 void					ft_init_map(t_map map);
+unsigned short			ft_get_4bits_first(unsigned short in)
 void 					manif_pour_tous(int nb_tetri, t_btetri bt); // to remove
 
 #endif
