@@ -30,14 +30,36 @@
 # define BUFF_READ (H_BLOCK + 1) * NB_TETRI - 1
 
 typedef char			t_tetri[NB_TETRI][NB_LINE][NB_COLL + 1];
-typedef char			t_output[LIMIT_SIDE][LIMIT_SIDE];
+typedef char			t_output[16][16];
+typedef struct    s_points
+{
+  int             x;
+  int             y;
+}                 t_points;
+typedef struct    s_coord
+{
+  t_points        minos[4];
+  char            letter;
+}                 t_coord;
+typedef t_coord   t_lst_coord[NB_TETRI];
 
 void					ft_error();
 int						ft_usage();
 int						ft_parser(t_tetri tetri, char *fn);
 void					ft_init_tetri(t_tetri tetri);
-void					ft_printtetri(t_tetri tetri, int nb_tetri);
 void					ft_writechar(char c);
 void					ft_init_output(t_output output);
+void	        ft_re_init_output(t_output init_output, int side);
+int           ft_transform(t_tetri tetri, int nb_tetri, t_lst_coord lc);
+int           ft_solver(int nb_tetri, t_lst_coord lc);
+
+int ft_wipe_piece(t_output out, t_lst_coord lc, int l, int side);
+int ft_change_place_x(t_output out, t_lst_coord lc, int side, int i, int j, int l);
+int ft_change_place_y(t_output out, t_lst_coord lc, int side, int i, int j, int l);
+int ft_place_piece(t_output out, t_lst_coord lc, int side, int i, int j , int l);
+
+// to remove
+void          ft_printcoord(t_lst_coord lc, int nb_tetri);
+void					ft_printtetri(t_tetri tetri, int nb_tetri);
 
 #endif
