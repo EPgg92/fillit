@@ -37,6 +37,7 @@ SRCS		+=	ft_debug.c
 SRCS		+=	ft_usage.c
 SRCS		+=	ft_bitoperation.c
 SRCS		+=	ft_error.c
+SRCS		+=	ft_transform.c
 
 #	Objects:
 OBJ			=	$(addprefix $(OBJ_DIR),$(SRCS:.c=.o))
