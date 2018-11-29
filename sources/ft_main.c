@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/16 22:58:00 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/28 18:03:24 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/29 23:43:26 by epoggio     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 	ft_transform(tetri, nb_tetri, lc);
 	//ft_printtetri(tetri, nb_tetri);
 	//ft_printcoord(lc, nb_tetri);
-	//ft_solver(nb_tetri, lc);
+	ft_solver(nb_tetri, lc);
 
 	return (0);
 }

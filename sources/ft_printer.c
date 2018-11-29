@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/20 14:28:30 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/28 18:03:40 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/29 23:46:29 by epoggio     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -48,6 +48,19 @@ void	ft_printtetri(t_tetri tetri, int nb_tetri)
 /*
 ** Just for debug...
 */
+
+
+void print_out(t_output out)
+{
+	int i;
+
+	i = -1;
+	while (++i < 16 && out[i][0])
+		printf("%s\n", out[i]);
+	printf("\n");
+}
+
+
 
 void	ft_printcoord(t_lst_coord lc, int nb_tetri)
 {

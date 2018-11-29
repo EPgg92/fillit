@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/20 14:17:57 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/28 18:06:19 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/29 23:47:21 by epoggio     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -31,17 +31,18 @@
 
 typedef char			t_tetri[NB_TETRI][NB_LINE][NB_COLL + 1];
 typedef char			t_output[16][16];
-typedef struct    s_points
+typedef struct    		s_points
 {
-  int             x;
-  int             y;
-}                 t_points;
-typedef struct    s_coord
+	int             	x;
+	int             	y;
+}                 		t_points;
+typedef struct    		s_coord
 {
-  t_points        minos[4];
-  char            letter;
-}                 t_coord;
-typedef t_coord   t_lst_coord[NB_TETRI];
+	t_points        	minos[4];
+	char            	letter;
+	//t_output			out;
+}                 		t_coord;
+typedef t_coord   		t_lst_coord[NB_TETRI];
 
 void					ft_error();
 int						ft_usage();
@@ -56,10 +57,11 @@ int           ft_solver(int nb_tetri, t_lst_coord lc);
 int ft_wipe_piece(t_output out, t_lst_coord lc, int l, int side);
 int ft_change_place_x(t_output out, t_lst_coord lc, int side, int i, int j, int l);
 int ft_change_place_y(t_output out, t_lst_coord lc, int side, int i, int j, int l);
-int ft_place_piece(t_output out, t_lst_coord lc, int side, int i, int j , int l);
+int ft_place_piece(t_output out, t_lst_coord lc, int side, int i, int j , int l, int nb_tetri);
 
 // to remove
-void          ft_printcoord(t_lst_coord lc, int nb_tetri);
-void					ft_printtetri(t_tetri tetri, int nb_tetri);
+void			ft_printcoord(t_lst_coord lc, int nb_tetri);
+void			ft_printtetri(t_tetri tetri, int nb_tetri);
+void			print_out(t_output out);
 
 #endif
