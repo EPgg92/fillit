@@ -55,7 +55,6 @@ static void				ft_check(t_tetri tetri, int nb)
 				else
 					ft_error(4); // code error e
 		stb = ft_placeupleft(stb);
-		x = 4;
 		while (--x > -1 && (y = NB_COLL - 1))
 			while (y > -1)
 			{
