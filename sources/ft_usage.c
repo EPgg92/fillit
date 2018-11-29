@@ -16,5 +16,5 @@
 int ft_usage()
 {
 	write(0, "usage: ./fillit teriminos_file\n", 31);
-	return (1);
+	return (64);
 }
