@@ -36,3 +36,15 @@ void	ft_init_output(t_output output)
 		while (++j < LIMIT_SIDE)
 			output[i][j] = 0;
 }
+
+
+void	ft_re_init_output(t_output init_output, int side)
+{
+	int i;
+	int j;
+
+	i = -1;
+	while (++i < side && !(j = -1))
+		while (++j < side)
+			init_output[i][j] = '.';
+}
