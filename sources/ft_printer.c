@@ -48,3 +48,18 @@ void	ft_printtetri(t_tetri tetri, int nb_tetri)
 /*
 ** Just for debug...
 */
+
+void	ft_printcoord(t_lst_coord lc, int nb_tetri)
+{
+	int i,j;
+
+	i = -1;
+	while (++i < nb_tetri)
+	{
+		j = -1;
+		while (++j < 4)
+			printf("piece %c point %d x: %d y: %d\n",
+			 lc[i].letter, j, lc[i].minos[j].x, lc[i].minos[j].y);
+		printf("\n");
+	}
+}
