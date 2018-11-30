@@ -6,14 +6,14 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/24 11:42:08 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/30 17:03:16 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/30 17:27:42 by vasalome    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-int ft_usage()
+int		ft_usage(void)
 {
 	write(0, "usage: ./fillit teriminos_file\n", 31);
 	return (64);

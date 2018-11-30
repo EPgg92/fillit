@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/20 14:17:57 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/30 17:05:31 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/30 17:34:27 by vasalome    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -31,22 +31,21 @@
 
 typedef char			t_tetri[NB_TETRI][NB_LINE][NB_COLL + 1];
 typedef char			t_output[16][16];
-typedef struct    		s_points
+typedef struct			s_points
 {
-	int             	x;
-	int             	y;
-}                 		t_points;
-typedef struct    		s_coord
+	int					x;
+	int					y;
+}						t_points;
+typedef struct			s_coord
 {
-	t_points        	minos[4];
-	char            	letter;
-}                 		t_coord;
-typedef t_coord   		t_lst_coord[NB_TETRI];
-
-typedef struct 			s_container
+	t_points			minos[4];
+	char				letter;
+}						t_coord;
+typedef t_coord			t_lst_coord[NB_TETRI];
+typedef struct			s_container
 {
 	int					nb_tetri;
-	int 				side;
+	int					side;
 	t_lst_coord			lc;
 	t_output			out;
 }						t_container;
@@ -57,9 +56,10 @@ int						ft_parser(t_tetri tetri, char *fn);
 void					ft_init_tetri(t_tetri tetri);
 void					ft_writechar(char c);
 void					ft_init_output(t_output output);
-void	        		ft_re_init_output(t_output init_output, int side);
-int           			ft_transform(t_tetri tetri, int nb_tetri, t_lst_coord lc);
-int           			ft_solver(t_container c);
+void					ft_re_init_output(t_output init_output, int side);
+void					ft_transform(t_tetri tetri, int nb_tetri, \
+									t_lst_coord lc);
+int						ft_solver(t_container c);
 void					ft_printer(t_output out, int side);
 
 // to remove

@@ -6,19 +6,19 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/20 14:28:30 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/30 16:32:51 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/30 17:27:11 by vasalome    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-static void ft_write_fillit(t_output out, int len, int side)
+static void		ft_write_fillit(t_output out, int len, int side)
 {
-	char str[len];
-	int x;
-	int i;
-	int j;
+	char	str[len];
+	int		x;
+	int		i;
+	int		j;
 
 	x = 0;
 	i = -1;
@@ -35,9 +35,9 @@ static void ft_write_fillit(t_output out, int len, int side)
 	exit(0);
 }
 
-void		ft_printer(t_output out, int side)
+void			ft_printer(t_output out, int side)
 {
-	int len;
+	int		len;
 
 	len = (side + 1) * side;
 	ft_write_fillit(out, len, side);

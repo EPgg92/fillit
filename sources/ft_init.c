@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/20 14:21:17 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/30 17:03:38 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/30 17:25:31 by vasalome    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,9 +15,9 @@
 
 void	ft_init_tetri(t_tetri tetri)
 {
-	int i;
-	int j;
-	int k;
+	int		i;
+	int		j;
+	int		k;
 
 	i = -1;
 	while (++i < NB_TETRI && !(j = -1))
@@ -28,8 +28,8 @@ void	ft_init_tetri(t_tetri tetri)
 
 void	ft_init_output(t_output output)
 {
-	int i;
-	int j;
+	int		i;
+	int		j;
 
 	i = -1;
 	while (++i < 16 && (j = -1) < 42)
@@ -37,11 +37,10 @@ void	ft_init_output(t_output output)
 			output[i][j] = 0;
 }
 
-
 void	ft_re_init_output(t_output init_output, int side)
 {
-	int i;
-	int j;
+	int		i;
+	int		j;
 
 	i = -1;
 	while (++i < side && (j = -1) < 42)
