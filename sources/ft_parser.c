@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/16 23:01:57 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/30 17:03:03 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/30 18:20:56 by epoggio     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,7 +19,6 @@ static unsigned short	ft_placeupleft(unsigned short stb)
 
 	tmp = 0;
 	(ft_countsetbits(stb) == 4) ? (tmp = stb << 1) : ft_error(5);
-	// code error f
 	while (ft_countsetbits(tmp) == 4 && tmp > stb)
 	{
 		if (tmp == 47104 || tmp == 55296 || tmp == 23552 || tmp == 39040 \
