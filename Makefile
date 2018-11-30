@@ -6,7 +6,7 @@
 #    By: vasalome <vasalome@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/11/26 17:27:09 by vasalome     #+#   ##    ##    #+#        #
-#    Updated: 2018/11/28 17:53:51 by vasalome    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/11/30 17:10:44 by epoggio     ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -35,7 +35,6 @@ SRCS		+=	ft_printer.c
 SRCS		+=	ft_init.c
 SRCS		+=	ft_debug.c
 SRCS		+=	ft_usage.c
-SRCS		+=	ft_bitoperation.c
 SRCS		+=	ft_error.c
 SRCS		+=	ft_transform.c
 
