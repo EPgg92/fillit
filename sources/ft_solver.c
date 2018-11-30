@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/20 14:30:06 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/30 17:23:30 by vasalome    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/30 17:54:12 by epoggio     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -36,6 +36,7 @@ static int	ft_wipe_piece(t_output out, t_lst_coord lc, int l, int side)
 
 static int	ft_place_piece(t_container c, int i, int j, int l)
 {
+	//print_out(c.out);
 	if (c.out[i + c.lc[l].minos[0].x][j + c.lc[l].minos[0].y] == '.'
 		&& c.out[i + c.lc[l].minos[1].x][j + c.lc[l].minos[1].y] == '.'
 		&& c.out[i + c.lc[l].minos[2].x][j + c.lc[l].minos[2].y] == '.'
@@ -60,10 +61,23 @@ static int	ft_place_piece(t_container c, int i, int j, int l)
 	return (0);
 }
 
+static int ft_place_first_piece(t_container c)
+{
+	int i;
+	int j;
+
+	i = -1;
+	while (++i < c.side && (j = -1) < 0)
+		while (++j < c.side)
+			ft_place_piece(c, i, j, 0);
+	return (0);
+}
+
+
 static int	ft_backtracking(t_container c)
 {
 	ft_re_init_output(c.out, c.side);
-	if (ft_place_piece(c, 0, 0, 0) == 0)
+	if (ft_place_first_piece(c) == 0)
 	{
 		c.side++;
 		ft_backtracking(c);
