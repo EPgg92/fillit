@@ -6,21 +6,15 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/16 22:57:19 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/24 11:46:19 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/30 17:01:49 by epoggio     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-void	ft_error(int code) // param for code error
+void	ft_error(int code)
 {
-	char code_error; // debug code
-
-	//write(0, "error\n", 6); // true code
-	code_error = 'a' + code; // debug code
-	write(0, "error ", 6); // debug code
-	write(0, &code_error, 1); // debug code
-	write(0, "\n", 1); // debug code
+	write(0, "error\n", 6);
 	exit(code);
 }
