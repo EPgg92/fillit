@@ -6,73 +6,39 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/20 14:28:30 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/29 23:46:29 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/30 16:32:51 by epoggio     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-void	ft_writechar(char c)
+static void ft_write_fillit(t_output out, int len, int side)
 {
-	write(0, &c, 1);
-}
-
-void	ft_printtetri(t_tetri tetri, int nb_tetri)
-{
+	char str[len];
+	int x;
 	int i;
 	int j;
-	int k;
 
+	x = 0;
 	i = -1;
-	j = -1;
-	k = -1;
-	while (++i < nb_tetri)
+	while (++i < side && (j = -1) < 101)
 	{
-		while (++j < NB_LINE)
-		{
-			while (++k < NB_COLL)
-				ft_writechar(tetri[i][j][k]);
-			k = -1;
-			ft_writechar('\n');
-		}
-		j = -1;
-		ft_writechar('-');
-		ft_writechar('~');
-		ft_writechar('-');
-		ft_writechar('~');
-		ft_writechar('\n');
+		while (++j < side)
+			str[x++] = out[i][j];
+		if (i + 1 != side)
+			str[x++] = '\n';
+		else
+			str[x] = '\0';
 	}
+	write(0, str, len);
+	exit(0);
 }
 
-/*
-** Just for debug...
-*/
-
-
-void print_out(t_output out)
+void		ft_printer(t_output out, int side)
 {
-	int i;
+	int len;
 
-	i = -1;
-	while (++i < 16 && out[i][0])
-		printf("%s\n", out[i]);
-	printf("\n");
-}
-
-
-
-void	ft_printcoord(t_lst_coord lc, int nb_tetri)
-{
-	int i,j;
-
-	i = -1;
-	while (++i < nb_tetri)
-	{
-		j = -1;
-		while (++j < 4)
-			printf("piece %c point %d x: %d y: %d\n",
-			 lc[i].letter, j, lc[i].minos[j].x, lc[i].minos[j].y);
-		printf("\n");
-	}
+	len = (side + 1) * side;
+	ft_write_fillit(out, len, side);
 }
