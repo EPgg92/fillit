@@ -6,18 +6,18 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/20 14:30:06 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/30 16:59:57 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/30 17:23:30 by vasalome    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-static int ft_wipe_piece(t_output out, t_lst_coord lc, int l, int side)
+static int	ft_wipe_piece(t_output out, t_lst_coord lc, int l, int side)
 {
-	char  c;
-	int   i;
-	int   j;
+	char	c;
+	int		i;
+	int		j;
 
 	i = -1;
 	c = lc[l].letter;
@@ -34,7 +34,7 @@ static int ft_wipe_piece(t_output out, t_lst_coord lc, int l, int side)
 	return (0);
 }
 
-static int ft_place_piece(t_container c, int i, int j , int l)
+static int	ft_place_piece(t_container c, int i, int j, int l)
 {
 	if (c.out[i + c.lc[l].minos[0].x][j + c.lc[l].minos[0].y] == '.'
 		&& c.out[i + c.lc[l].minos[1].x][j + c.lc[l].minos[1].y] == '.'
@@ -57,22 +57,21 @@ static int ft_place_piece(t_container c, int i, int j , int l)
 				ft_wipe_piece(c.out, c.lc, l, c.side);
 			}
 	}
-
 	return (0);
 }
 
-static int ft_backtracking(t_container c)
+static int	ft_backtracking(t_container c)
 {
-    ft_re_init_output(c.out, c.side);
-    if (ft_place_piece(c, 0, 0, 0) == 0)
+	ft_re_init_output(c.out, c.side);
+	if (ft_place_piece(c, 0, 0, 0) == 0)
 	{
 		c.side++;
 		ft_backtracking(c);
 	}
-    return (64);
+	return (64);
 }
 
-int ft_solver(t_container c)
+int			ft_solver(t_container c)
 {
 	ft_init_output(c.out);
 	c.side = ft_sqrt(4 * c.nb_tetri);
