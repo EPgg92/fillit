@@ -6,19 +6,19 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/20 14:17:57 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/30 17:34:27 by vasalome    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/30 18:51:38 by vasalome    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
+
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include <stdio.h> // to remove
 # include "../libft/includes/libft.h"
 
 # define NB_LINE 4
@@ -62,8 +62,4 @@ void					ft_transform(t_tetri tetri, int nb_tetri, \
 int						ft_solver(t_container c);
 void					ft_printer(t_output out, int side);
 
-// to remove
-void					ft_printcoord(t_lst_coord lc, int nb_tetri);
-void					ft_printtetri(t_tetri tetri, int nb_tetri);
-void					print_out(t_output out);
 #endif

@@ -6,7 +6,7 @@
 #    By: vasalome <vasalome@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/11/26 17:27:09 by vasalome     #+#   ##    ##    #+#        #
-#    Updated: 2018/11/30 17:10:44 by epoggio     ###    #+. /#+    ###.fr      #
+#    Updated: 2018/11/30 18:51:10 by vasalome    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -24,7 +24,7 @@ CFLAGS		=	-Wall -Wextra -Werror
 
 #	Directory:
 SRCS_DIR	=	./sources/
-OBJ_DIR		=	./objs_fillit/
+#OBJ_DIR		=	./objs_fillit/
 INC_DIR		=	./includes/
 
 #	Sources:
@@ -33,13 +33,12 @@ SRCS		+=	ft_parser.c
 SRCS		+=	ft_solver.c
 SRCS		+=	ft_printer.c
 SRCS		+=	ft_init.c
-SRCS		+=	ft_debug.c
 SRCS		+=	ft_usage.c
 SRCS		+=	ft_error.c
 SRCS		+=	ft_transform.c
 
 #	Objects:
-OBJ			=	$(addprefix $(OBJ_DIR),$(SRCS:.c=.o))
+OBJ			=	$(SRCS:.c=.o)
 
 #	Includes:
 INC			=	$(addprefix -I,$(INC_DIR))
@@ -75,15 +74,12 @@ R_UNDERLINE	=	\033[24m
 ##	|	RULES	|	##
 ##					##
 
-$(OBJ_DIR)%.o:$(SRCS_DIR)%.c $(INC_DIR)*.h
+%.o:$(SRCS_DIR)%.c $(INC_DIR)*.h
 	@printf "$(_CYAN)[CC] $(<:.c=)...$(_STOP)"
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 	@printf "\r                                             \r"
 
-all:
-	@echo "$(_CYAN)$(UNDERLINE)FILLIT:$(R_UNDERLINE)$(_STOP)		$(BOLD)COMPILATION OBJECTS: IN PROGRESS..$(_STOP)\n		OBJECTS DIRECTORY: CREATION || ->\n"
-	@mkdir -p $(OBJ_DIR)
-	@$(MAKE) $(NAME) --no-print-directory
+all: $(NAME)
 
 make_libft:
 	@make -C libft/
@@ -107,7 +103,7 @@ $(NAME): $(OBJ) $(INC_DIR) make_libft
 
 clean:
 	@echo "$(_CYAN)$(UNDERLINE)FILLIT:$(R_UNDERLINE)$(_STOP)		$(BOLD)CLEAN: IN PROGRESS..$(_STOP)\n		DELETING OBJECTS || ->\n"
-	@$(RM_DIR) $(OBJ_DIR)
+	@$(RM_DIR) $(OBJ)
 	@$(MAKE) clean -C libft/
 	@echo "$(_CYAN)| ->		CLEAN: DONE\n$(_STOP)"
 
@@ -117,10 +113,7 @@ fclean: clean
 	@$(MAKE) fclean -C libft/
 	@echo "$(_CYAN)| ->		FCLEAN: DONE\n$(_STOP)"
 
-re:
-	@$(MAKE) fclean --no-print-directory
-	@$(MAKE) all --no-print-directory
-
+re: fclean all
 
 #.SILENT: $(OBJ)
 #.PRECIOUS:
