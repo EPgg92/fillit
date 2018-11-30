@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/16 23:01:57 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/28 18:00:38 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/30 17:03:03 by epoggio     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,7 +33,7 @@ static unsigned short	ft_placeupleft(unsigned short stb)
 		stb == 59392 || stb == 50240 || stb == 11776 || stb == 19968 || \
 		stb == 19520 || stb == 35968 || stb == 58368 || stb == 50688 || \
 		stb == 19584 || stb == 27648 || stb == 35904))
-		ft_error(6); // code error g
+		ft_error(6);
 	return (stb);
 }
 
@@ -53,7 +53,7 @@ static void				ft_check(t_tetri tetri, int nb)
 				if (tetri[z][x][y] == '#' || tetri[z][x][y] == '.')
 					stb = (tetri[z][x][y] == '#') ? (stb << 1) + 1 : (stb << 1);
 				else
-					ft_error(4); // code error e
+					ft_error(4);
 		stb = ft_placeupleft(stb);
 		while (--x > -1 && (y = NB_COLL - 1))
 			while (y > -1)
@@ -77,7 +77,7 @@ static int				ft_septetri(t_tetri tetri, char *str, \
 	while (++z < nb_tetri && (x = -1) < 42)
 		while ((l = ft_strsep(&str, "\n")) && ++x < NB_LINE)
 			(ft_strlen(l) == NB_COLL) ? \
-				ft_strcpy(tetri[z][x], l) : ft_error(3); // code error d
+				ft_strcpy(tetri[z][x], l) : ft_error(3);
 	ft_check(tetri, nb_tetri);
 	return (nb_tetri);
 }
@@ -90,10 +90,9 @@ static int				ft_read(t_tetri tetri, char *filename)
 
 	fd = open(filename, O_RDONLY);
 	ret = read(fd, buff, BUFF_READ);
-	ret % 21 == 20 ? buff[ret] = 0 : ft_error(1); // code error: b
+	ret % 21 == 20 ? buff[ret] = 0 : ft_error(1);
 	(read(fd, NULL, 1)) ? \
 		ft_error(2) : (ret = ft_septetri(tetri, buff, ret));
-	// code error: c
 	return (ret);
 }
 
