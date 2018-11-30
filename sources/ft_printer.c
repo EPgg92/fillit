@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/20 14:28:30 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/30 17:27:11 by vasalome    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/30 19:25:08 by vasalome    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -31,7 +31,7 @@ static void		ft_write_fillit(t_output out, int len, int side)
 		else
 			str[x] = '\0';
 	}
-	write(0, str, len);
+	write(1, str, len);
 	exit(0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/16 22:57:19 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/30 17:01:49 by epoggio     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/11/30 19:25:53 by vasalome    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,6 +15,6 @@
 
 void	ft_error(int code)
 {
-	write(0, "error\n", 6);
+	write(1, "error\n", 6);
 	exit(code);
 }
