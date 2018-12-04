@@ -6,16 +6,17 @@
 #    By: vasalome <vasalome@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/11/26 17:27:09 by vasalome     #+#   ##    ##    #+#        #
-#    Updated: 2018/11/30 18:51:10 by vasalome    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/12/04 14:32:39 by vasalome    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
 
 NAME		=	fillit
 
-CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror
+#	Compiler:
+CFLAGS		=	-Wall -Wextra -Werror -I
 
+#	Sources:
 SRCS		=	ft_main.c
 SRCS		+=	ft_parser.c
 SRCS		+=	ft_solver.c
@@ -24,36 +25,34 @@ SRCS		+=	ft_init.c
 SRCS		+=	ft_usage.c
 SRCS		+=	ft_error.c
 SRCS		+=	ft_transform.c
+SRCS		+=	ft_strcpy.c
+SRCS		+=	ft_strcspn.c
+SRCS		+=	ft_strchr.c
+SRCS		+=	ft_strlen.c
+SRCS		+=	ft_strsep.c
+SRCS		+=	ft_sqrt.c
+SRCS		+=	ft_countsetbits.c
 
-OBJ			=	$(SRCS:.c=.o)
+#	Objects:
+OBJS			=	$(notdir $(SRCS:.c=.o))
 
+#	Includes:
 INC			=	fillit.h
-
-LIBFT		=	libft/libft.a
-
-RM			=	/bin/rm -f
-RM_DIR		=	/bin/rm -rf
-
-%.o:%.c $(INC)
-	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 all: $(NAME)
 
-make_libft:
-	@make -C libft/
+$(NAME): $(OBJS)
+	@gcc $(CFLAGS) $(OBJS) -o $(NAME)
 
-$(NAME): $(OBJ) %.o  make_libft
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT)
+%.o:%.c fillit.h
+	@$(CC) $(CFLAGS) -I $(INC) -c $<
 
 clean:
-	@$(RM_DIR) $(OBJ)
-	@$(MAKE) clean -C libft/
+	@/bin/rm -f $(OBJS) fillit.h.gch
 
 fclean: clean
-	@$(RM) $(NAME) a.out
-	@$(MAKE) fclean -C libft/
+	@/bin/rm -f $(NAME) a.out
 
 re: fclean all
 
-#.SILENT: $(OBJ)
-.PHONY: all clean fclean re make_libft
+.PHONY: all clean fclean re
