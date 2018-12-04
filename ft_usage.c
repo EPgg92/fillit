@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/24 11:42:08 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/30 17:27:42 by vasalome    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/12/04 17:04:15 by vasalome    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,6 +15,6 @@
 
 int		ft_usage(void)
 {
-	write(1, "usage: ./fillit tetriminos_file\n", 31);
+	write(1, "usage: ./fillit tetriminos_file\n", 32);
 	return (64);
 }
