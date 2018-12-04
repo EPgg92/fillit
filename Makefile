@@ -41,17 +41,19 @@ INC			=	fillit.h
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	@gcc $(CFLAGS) $(OBJS) -o $(NAME)
-
 %.o:%.c fillit.h
 	@$(CC) $(CFLAGS) -I $(INC) -c $<
+
+$(NAME): $(OBJS)
+	@echo "BBBBBB"
+	@gcc $(CFLAGS) -c $(OBJS) -o $(NAME)
+	@echo "CCCCCC"
 
 clean:
 	@/bin/rm -f $(OBJS) fillit.h.gch
 
 fclean: clean
-	@/bin/rm -f $(NAME) a.out
+	@/bin/rm -f $(NAME)
 
 re: fclean all
 
