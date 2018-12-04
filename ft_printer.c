@@ -6,7 +6,7 @@
 /*   By: epoggio <epoggio@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/11/20 14:28:30 by epoggio      #+#   ##    ##    #+#       */
-/*   Updated: 2018/11/30 19:25:08 by vasalome    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/12/04 17:11:44 by vasalome    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,10 +26,7 @@ static void		ft_write_fillit(t_output out, int len, int side)
 	{
 		while (++j < side)
 			str[x++] = out[i][j];
-		if (i + 1 != side)
-			str[x++] = '\n';
-		else
-			str[x] = '\0';
+		str[x++] = '\n';
 	}
 	write(1, str, len);
 	exit(0);
