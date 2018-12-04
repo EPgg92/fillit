@@ -6,7 +6,7 @@
 #    By: vasalome <vasalome@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/11/26 17:27:09 by vasalome     #+#   ##    ##    #+#        #
-#    Updated: 2018/12/04 14:32:39 by vasalome    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/12/04 16:38:50 by vasalome    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -45,9 +45,7 @@ all: $(NAME)
 	@$(CC) $(CFLAGS) -I $(INC) -c $<
 
 $(NAME): $(OBJS)
-	@echo "BBBBBB"
 	@gcc $(CFLAGS) -c $(OBJS) -o $(NAME)
-	@echo "CCCCCC"
 
 clean:
 	@/bin/rm -f $(OBJS) fillit.h.gch
