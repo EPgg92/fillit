@@ -68,10 +68,10 @@ Bonne chance!
 
 # Code erreur :
 
--   a : pas d'argument
--   b : mauvais nombre de cara
--   c : trop de cara
--   d : pas un carre 4x4
--   e : pas # ou .
--   f : pas le bon nombre de #
--   g : piece non valide
+-   usage : pas d'argument
+-   1 : mauvais nombre de cara
+-   2 : trop de cara
+-   3 : pas un carre 4x4
+-   4 : pas # ou .
+-   5 : pas le bon nombre de #
+-   6 : piece non valide
