@@ -6,7 +6,7 @@
 #    By: vasalome <vasalome@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/11/26 17:27:09 by vasalome     #+#   ##    ##    #+#        #
-#    Updated: 2018/12/04 16:42:49 by vasalome    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/12/04 16:59:32 by vasalome    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -14,6 +14,7 @@
 NAME		=	fillit
 
 #	Compiler:
+CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror
 
 #	Sources:
@@ -42,10 +43,10 @@ INC			=	fillit.h
 all: $(NAME)
 
 %.o:%.c fillit.h
-	@$(CC) $(CFLAGS) -I $(INC) -c $<
+	@$(CC) $(CFLAGS) $(INC) -c $<
 
 $(NAME): $(OBJS)
-	@gcc $(CFLAGS) -c $(OBJS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	@/bin/rm -f $(OBJS) fillit.h.gch
