@@ -19,7 +19,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include "./libft/libft.h"
+# include <string.h>
 
 # define NB_LINE 4
 # define NB_COLL 4
@@ -61,5 +61,13 @@ void					ft_transform(t_tetri tetri, int nb_tetri, \
 									t_lst_coord lc);
 int						ft_solver(t_container c);
 void					ft_printer(t_output out, int side);
+
+size_t					ft_strcspn(const char *s, const char *charset);
+char					*ft_strsep(char **stringp, const char *delim);
+int						ft_countsetbits(unsigned short n);
+int						ft_sqrt(int nb);
+size_t					ft_strlen(const char *str);
+char					*ft_strcpy(char *dst, const char *src);
+char					*ft_strchr(const char *s, int c);
 
 #endif
