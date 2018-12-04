@@ -55,17 +55,6 @@ $> cat test03.rand.valid
 
 C'est tout dans le typedef tetri.
 
-# TODO:
-
-Salut je suis pas là car j'ai oublié d'aller dormir... donc j'ai fait le parsing.
-
--   [ ] checker et casser le parssing et le parsing d'error (le tester avec toutes les types de pieces places en bas à gauche ...)
--   [ ] faire les checks de liens à l'intérieur des pieces (6 ou 8)
--   [ ] commencer à réfléchir l'algo de bactracting ...
--   [ ] tout les autres trucs que j'ai oublié... comme dormir.
-
-Bonne chance!
-
 # Code erreur :
 
 -   usage : pas d'argument
