@@ -6,7 +6,7 @@
 #    By: vasalome <vasalome@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/11/26 17:27:09 by vasalome     #+#   ##    ##    #+#        #
-#    Updated: 2018/12/04 16:38:50 by vasalome    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/12/04 16:42:49 by vasalome    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -14,7 +14,7 @@
 NAME		=	fillit
 
 #	Compiler:
-CFLAGS		=	-Wall -Wextra -Werror -I
+CFLAGS		=	-Wall -Wextra -Werror
 
 #	Sources:
 SRCS		=	ft_main.c
